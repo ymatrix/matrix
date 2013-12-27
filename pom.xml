@@ -4,8 +4,8 @@
 	<groupId>matrix</groupId>
 	<artifactId>matrix</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>jeesimple Maven Webapp</name>
+	<version>v1.0.0</version>
+	<name>matrix Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<!-- 指定Maven仓库 -->
@@ -295,7 +295,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>jeesimple</finalName>
+		<finalName>matrix</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
