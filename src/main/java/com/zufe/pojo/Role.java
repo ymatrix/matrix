@@ -1,5 +1,7 @@
 package com.zufe.pojo;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,44 +10,61 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
- * Role entity. @author MyEclipse Persistence Tools
+ * @author matrix
  */
 @Entity
 @Table(name = "role")
-@Cache(usage =CacheConcurrencyStrategy.READ_WRITE)
 public class Role implements java.io.Serializable {
 
-	// Fields
-
-	private Integer id;
+	private String id;
+	
+	/**
+	 * 角色名称
+	 */
 	private String name;
-	private String permission;
-	private String status;
+	
+	/**
+	 * 创建用户
+	 */
+	private String userid;
+	
+	/**
+	 * 创建日期
+	 */
+	private Date createDate;
+	
+	/**
+	 * 状态
+	 */
+	private int status;
 
-	// Constructors
-
-	/** default constructor */
+ 
 	public Role() {
+		super();
 	}
 
-	/** full constructor */
-	public Role(String name, String permission, String status) {
+	public Role(String id, String name, String userid, Date createDate,
+			int status) {
+		super();
+		this.id = id;
 		this.name = name;
-		this.permission = permission;
+		this.userid = userid;
+		this.createDate = createDate;
 		this.status = status;
 	}
 
-	// Property accessors
 	@Id
-	@GeneratedValue
+	@GenericGenerator(name="systemUUID",strategy="uuid")
+	@GeneratedValue(generator="systemUUID")
 	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -58,22 +77,31 @@ public class Role implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@Column(name = "permission")
-	public String getPermission() {
-		return this.permission;
+	@Column(name = "userid")
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setPermission(String permission) {
-		this.permission = permission;
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	@Column(name = "createdate")
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	@Column(name = "status")
-	public String getStatus() {
-		return this.status;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
-
+	
 }

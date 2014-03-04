@@ -7,9 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <base href="<%=basePath%>">
-	<link rel="stylesheet" type="text/css" href="common/jquery-easyui-1.3.5/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="common/jquery-easyui-1.3.5/themes/icon.css">
 	<script type="text/javascript" src="common/jquery-easyui-1.3.5/jquery.min.js"></script>
 	<script type="text/javascript" src="common/jquery-easyui-1.3.5/jquery.easyui.min.js"></script>
   </head>
+  <body>
+    <div id="content">
+    <link rel="stylesheet" type="text/css" href="common/jquery-easyui-1.3.5/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="common/jquery-easyui-1.3.5/themes/icon.css">
+	</div>
+  </body>
 </html>

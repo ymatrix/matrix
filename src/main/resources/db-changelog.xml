@@ -6,4 +6,236 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+	<changeSet id="20140219001_jyl1000" author="matrix">
+		<createTable tableName="permission">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="parentid" type="char(32)"></column>
+			<column name="url" type="varchar(200)"></column>
+			<column name="picurl" type="varchar(200)"></column>
+			<column name="flag" type="varchar(50)"></column>
+			<column name="sort" type="int" defaultValue="0"></column>
+			<column name="level" type="int" defaultValue="0"></column>
+			<column name="isleaf" type="boolean" defaultValue="0"></column>
+		</createTable>
+		<createTable tableName="role">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="userid" type="char(32)"></column>
+			<column name="createDate" type="datetime"></column>
+			<column name="status" type="int"></column>
+		</createTable>
+		<createTable tableName="rolepermission">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="roleid" type="char(32)"></column>
+			<column name="permissionid" type="char(32)"></column>
+		</createTable>
+		<createTable tableName="user">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="username" type="varchar(50)"></column>
+			<column name="password" type="varchar(50)"></column>
+			<column name="realname" type="varchar(50)"></column>
+			<column name="sex" type="varchar(10)"></column>
+			<column name="mail" type="varchar(20)"></column>
+			<column name="tel" type="varchar(20)"></column>
+			<column name="address" type="varchar(100)"></column>
+			<column name="position" type="varchar(20)"></column>
+			<column name="jobno" type="varchar(10)"></column>
+			<column name="createdate" type="datetime"></column>
+			<column name="logindate" type="datetime"></column>
+			<column name="loginip" type="varchar(50)"></column>
+			<column name="roleid" type="varchar(32)"></column>
+		</createTable>
+		<createTable tableName="category">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="parentid" type="varchar(32)"></column>
+			<column name="level" type="int" defaultValue="0"></column>
+			<column name="modelid" type="varchar(32)"></column>
+			<column name="image" type="varchar(100)"></column>
+			<column name="description" type="varchar(500)"></column>
+			<column name="isleaf" type="boolean"></column>
+			<column name="sort" type="int"></column>
+			<column name="categoryType" type="int"></column>
+			<column name="isshow" type="boolean"></column>
+		</createTable>
+		<createTable tableName="model">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="description" type="varchar(500)"></column>
+			<column name="siteid" type="varchar(32)"></column>
+			<column name="category_template" type="varchar(100)"></column>
+			<column name="list_template" type="varchar(100)"></column>
+			<column name="show_template" type="varchar(100)"></column>
+			<column name="status" type="int"></column>
+		</createTable>
+		<createTable tableName="site">
+			<column name="id" type="char(32)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="dirname" type="varchar(100)"></column>
+			<column name="domain" type="varchar(50)"></column>
+			<column name="title" type="varchar(100)"></column>
+			<column name="keyword" type="varchar(100)"></column>
+			<column name="description" type="varchar(500)"></column>
+		</createTable>
+	</changeSet>
+	<changeSet id="20140219001_jyl1001" author="matrix">
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541257"></column>
+			<column name="name" value="我的面板"></column>
+			<column name="parentid" value=""></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="0"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541258"></column>
+			<column name="name" value="个人信息"></column>
+			<column name="parentid" value="123125456452125412541236541257"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="1"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541259"></column>
+			<column name="name" value="生成操作"></column>
+			<column name="parentid" value="123125456452125412541236541257"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="9"></column>
+			<column name="level" value="1"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541260"></column>
+			<column name="name" value="修改信息"></column>
+			<column name="parentid" value="123125456452125412541236541259"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="9"></column>
+			<column name="level" value="2"></column>
+			<column name="isleaf" valueBoolean="true"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541261"></column>
+			<column name="name" value="修改密码"></column>
+			<column name="parentid" value="123125456452125412541236541259"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="9"></column>
+			<column name="level" value="2"></column>
+			<column name="isleaf" valueBoolean="true"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541270"></column>
+			<column name="name" value="内容管理"></column>
+			<column name="parentid" value=""></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="9"></column>
+			<column name="level" value="0"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541271"></column>
+			<column name="name" value="系统设置"></column>
+			<column name="parentid" value=""></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="8"></column>
+			<column name="level" value="0"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="223125456452125412541236541271"></column>
+			<column name="name" value="相关设置"></column>
+			<column name="parentid" value="123125456452125412541236541271"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="1"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="323125456452125412541236541271"></column>
+			<column name="name" value="站点管理"></column>
+			<column name="parentid" value="223125456452125412541236541271"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="2"></column>
+			<column name="isleaf" valueBoolean="true"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="223125456452125412541236541272"></column>
+			<column name="name" value="管理员设置"></column>
+			<column name="parentid" value="123125456452125412541236541271"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="9"></column>
+			<column name="level" value="1"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="323125456452125412541236541273"></column>
+			<column name="name" value="角色管理"></column>
+			<column name="parentid" value="223125456452125412541236541272"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="2"></column>
+			<column name="isleaf" valueBoolean="true"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="323125456452125412541236541272"></column>
+			<column name="name" value="管理员管理"></column>
+			<column name="parentid" value="223125456452125412541236541272"></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="10"></column>
+			<column name="level" value="2"></column>
+			<column name="isleaf" valueBoolean="true"></column>
+		</insert>
+		<insert tableName="permission">
+			<column name="id" value="123125456452125412541236541272"></column>
+			<column name="name" value="扩展"></column>
+			<column name="parentid" value=""></column>
+			<column name="url" value=""></column>
+			<column name="picurl" value=""></column>
+			<column name="flag" value="0"></column>
+			<column name="sort" value="7"></column>
+			<column name="level" value="0"></column>
+			<column name="isleaf" valueBoolean="false"></column>
+		</insert>
+	</changeSet>
 </databaseChangeLog>

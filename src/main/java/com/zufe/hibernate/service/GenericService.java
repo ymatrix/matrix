@@ -3,8 +3,15 @@ package com.zufe.hibernate.service;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
+
+import net.sf.json.JSONSerializer;
+import net.sf.json.JsonConfig;
+import net.sf.json.processors.JsonValueProcessor;
+
 import org.springframework.stereotype.Service;
+
 import com.zufe.hibernate.dao.IGenericDAO;
+import com.zufe.utils.DateJsonValueProcessor;
 
 /**       
  * 泛型Service接口实现
@@ -58,11 +65,11 @@ public class GenericService <T extends Serializable,PK extends Serializable> imp
 			T dao = (T) this.genericDAO.get(id);
 			String json = null;
 			if(dao!=""||dao!=null){
-//				 JsonValueProcessor jsonProcessor = new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss");
-//				 JsonConfig jsonConfig = new JsonConfig(); // 注册值处理器
-//				 jsonConfig.registerJsonValueProcessor(Timestamp.class, jsonProcessor);
-//
-//				json = JSONSerializer.toJSON(dao,jsonConfig).toString();
+				 JsonValueProcessor jsonProcessor = new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss");
+				 JsonConfig jsonConfig = new JsonConfig(); // 注册值处理器
+				 jsonConfig.registerJsonValueProcessor(Timestamp.class, jsonProcessor);
+
+				json = JSONSerializer.toJSON(dao,jsonConfig).toString();
 			}
 			return json;
 		}catch (Exception e) {
@@ -81,16 +88,16 @@ public class GenericService <T extends Serializable,PK extends Serializable> imp
 			List<T> list = this.genericDAO.findAll(start, limit);
 			String json=null;
 			
-//			JsonValueProcessor jsonProcessor = new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss");
-//			JsonConfig jsonConfig = new JsonConfig(); // 注册值处理器
-//			jsonConfig.registerJsonValueProcessor(Timestamp.class, jsonProcessor);
-//
-//			if(list.size()>0){
-//				json = "{" 
-//						+"\"rows\":" + JSONSerializer.toJSON(list,jsonConfig).toString()+","
-//						+"\"total\":"+ this.genericDAO.getTotalNumber() 
-//						+ "}";
-//			}
+			JsonValueProcessor jsonProcessor = new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss");
+			JsonConfig jsonConfig = new JsonConfig(); // 注册值处理器
+			jsonConfig.registerJsonValueProcessor(Timestamp.class, jsonProcessor);
+
+			if(list.size()>0){
+				json = "{" 
+						+"\"rows\":" + JSONSerializer.toJSON(list,jsonConfig).toString()+","
+						+"\"total\":"+ this.genericDAO.getTotalNumber() 
+						+ "}";
+			}
 			return json;
 		}catch (Exception e) {
 			return null;

@@ -1,0 +1,16 @@
+[{
+    "id":1,
+    "text":"Folder1",
+    "children":[{
+        "text":"File1",
+        "checked":true
+    }]
+},{
+    "text":"Languages",
+    "state":"closed",
+    "children":[{
+        "text":"Java"
+    },{
+        "text":"C#"
+    }]
+}]
