@@ -1,4 +1,4 @@
-package com.zufe.controller;
+package com.zufe.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,18 +16,19 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.zufe.pojo.Permission;
+import com.zufe.pojo.User;
 import com.zufe.service.PermissionService;
 
 @Controller
-@RequestMapping("permissionController.do")
-public class PermissionController {
+@RequestMapping("PermissionAction")
+public class PermissionAction {
 
 	@Autowired
 	private PermissionService service;
 	
-	@RequestMapping(params = "method=menu")   
+	@RequestMapping(value = "menu.do")   
     public void getPermissionMenu(HttpServletRequest request,HttpServletResponse response, ModelMap modelMap){   
-		 try {
+		try {
 			response.setCharacterEncoding("utf-8");
 			response.getWriter().print(service.getPermissionMenu());
 		} catch (IOException e) {
@@ -36,13 +37,4 @@ public class PermissionController {
 		}   
     }
 	
-	@RequestMapping(params = "method=test")   
-    public void add(HttpServletRequest request,HttpServletResponse response, ModelMap modelMap){   
-		 try {
-			response.getWriter().print("[{\"id\":1,\"text\":\"Folder1\",\"children\":[{\"text\":\"File1\",\"checked\":true}]}]");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}   
-    }
 }

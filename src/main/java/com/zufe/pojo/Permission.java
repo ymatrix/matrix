@@ -81,8 +81,8 @@ public class Permission implements java.io.Serializable {
 	}
 
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	@GenericGenerator(name="uuid",strategy="org.hibernate.id.UUIDGenerator")
+	@GeneratedValue(generator="uuid")
 	@Column(name = "id", unique = true, nullable = false)
 	public String getId() {
 		return this.id;

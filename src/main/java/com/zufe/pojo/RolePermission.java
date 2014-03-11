@@ -34,8 +34,8 @@ public class RolePermission implements java.io.Serializable {
 
 	// Property accessors
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	@GenericGenerator(name="uuid",strategy="org.hibernate.id.UUIDGenerator")
+	@GeneratedValue(generator="uuid")
 	@Column(name = "id", unique = true, nullable = false)
 	public String getId() {
 		return this.id;

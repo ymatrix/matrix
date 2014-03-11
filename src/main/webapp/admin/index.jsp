@@ -67,8 +67,8 @@
 		 <ul id="tree" class="easyui-tree">
     	</ul>
 	</div>
-	<div id="center" data-options="region:'center'" title="当前位置："style="width:auto;height:100%;border-top-style:none">
-	
+	<div id="center" data-options="region:'center'" title="当前位置："style="width:auto;height:100%;border-top-style:none;padding:1px">
+		 
     </div>
 	<script type="text/javascript">
 	var menu = null;
@@ -81,7 +81,7 @@
 	//初始化菜单
 	function initMenu(){
 		$.ajax({ 
-			url: "permissionController.do?method=menu", 
+			url: "PermissionAction/menu.do", 
 			dataType : "json",
 			async : false,
 			success: function(data){
@@ -111,7 +111,10 @@
 			    	    lines:true,
 			    	    onClick: function(node){
 			    	    	if(node.isleaf==2){
+			    	    		$('.window-shadow').prev().remove();
+			    	    		$('.window-shadow').remove();
 				    	    	$("#center").panel("setTitle","当前位置："+$('#tree').tree("getParent",node.target).text+"&nbsp>&nbsp"+node.text);
+				    	    	$('#center').panel('refresh', node.url);
 			    	    	}else{
 			    	    		$("#center").panel("setTitle","当前位置："+node.text);
 			    	    	}

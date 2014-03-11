@@ -14,11 +14,15 @@ import com.zufe.pojo.Permission;
  * 2014年2月28日
  */
 @Service
-public class PermissionService {
+public class PermissionService extends GenericService{
 
-	@Autowired
-	private DAO dao;
 	
+	public PermissionService() {
+		super();
+		// TODO Auto-generated constructor stub
+		this.setEntity("Permission");
+	}
+
 	public String getPermissionMenu(){
 		List<Permission> list = this.dao.find("from Permission order by level asc,sort desc");
 		return "["+getJson(list,"")+"]";

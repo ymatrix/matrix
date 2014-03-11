@@ -20,6 +20,9 @@
 		</property>
 	</bean> 
 	
+	<bean id="constant" class="com.zufe.utils.Constant">
+		<property name="LOGIN_URL" value="${loginURL}"></property>
+	</bean>
 	<bean id="targetDataSource" class="org.apache.commons.dbcp.BasicDataSource" 
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driverClassName}"></property>

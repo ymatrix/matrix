@@ -22,6 +22,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class User implements java.io.Serializable {
 
 	private String id;
+	
 	/**
 	 * 登陆名
 	 */
@@ -45,7 +46,7 @@ public class User implements java.io.Serializable {
 	/**
 	 * 邮箱
 	 */
-	private String mail;
+	private String email;
 	
 	/**
 	 * 电话
@@ -100,7 +101,7 @@ public class User implements java.io.Serializable {
 		this.password = password;
 		this.realname = realname;
 		this.sex = sex;
-		this.mail = mail;
+		this.email = mail;
 		this.tel = tel;
 		this.address = address;
 		this.position = position;
@@ -112,14 +113,17 @@ public class User implements java.io.Serializable {
 	}
 
 	@Id
-	@GenericGenerator(name="systemUUID",strategy="uuid")
-	@GeneratedValue(generator="systemUUID")
+	@GenericGenerator(name="uuid",strategy="org.hibernate.id.UUIDGenerator")
+	@GeneratedValue(generator="uuid")
 	@Column(name = "id", unique = true, nullable = false)
 	public String getId() {
 		return this.id;
 	}
 
 	public void setId(String id) {
+		if("".equals(id)){
+			return;
+		}
 		this.id = id;
 	}
 	
@@ -159,13 +163,13 @@ public class User implements java.io.Serializable {
 		this.sex = sex;
 	}
 
-	@Column(name = "mail")
-	public String getMail() {
-		return mail;
+	@Column(name = "email")
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Column(name = "tel")

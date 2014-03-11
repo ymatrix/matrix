@@ -2,9 +2,9 @@ package com.zufe.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 public class DAO{
 
 	@Autowired 
-	private SessionFactory sessionFactory;
+	public SessionFactory sessionFactory;
 
 	/**
 	 * 使用HQL语句检索数据
@@ -29,10 +29,44 @@ public class DAO{
 	}
 	
 	/**
+	 * 执行hql语句
+	 * @param hql
+	 * @return
+	 */
+	public boolean executeHql(String hql){
+		try{
+			Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+			query.executeUpdate();
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
+	/**
 	 * 存储实体到数据库
 	 * @param entity
 	 */
 	public void save(Object entity) {
-		this.sessionFactory.getCurrentSession().save(entity);
+		this.sessionFactory.getCurrentSession().saveOrUpdate(entity);
+	}
+	
+	/**
+	 * 分页查询
+	 * @param hql
+	 * @param page
+	 * @param limit
+	 * @return
+	 */
+	public List find(String hql,int page,int limit){
+		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+		query.setFirstResult((page-1)*limit); 
+		query.setMaxResults(limit); 
+		return query.list();
+	}
+	
+	public int count(String hql){
+		Query query = this.sessionFactory.getCurrentSession().createQuery(hql);
+		return ((Number)query.uniqueResult()).intValue();
 	}
 }

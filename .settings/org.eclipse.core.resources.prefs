@@ -1,7 +1,16 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/com/zufe/action/RoleAction.java=utf-8
+encoding//src/main/java/com/zufe/action/SiteAction.java=utf-8
+encoding//src/main/java/com/zufe/action/UserAction.java=utf-8
 encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/admin/index.jsp=UTF-8
+encoding//src/main/webapp/admin/manager/management.jsp=UTF-8
+encoding//src/main/webapp/admin/role/role.jsp=UTF-8
+encoding//src/main/webapp/admin/site=UTF-8
+encoding//src/main/webapp/admin/site/site.jsp=utf-8
+encoding//src/main/webapp/error.jsp=UTF-8
 encoding//src/main/webapp/mobile/index.htm=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
+encoding/src=UTF-8
