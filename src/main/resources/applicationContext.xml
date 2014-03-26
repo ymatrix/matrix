@@ -63,7 +63,7 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
-				<!--  <prop key="hibernate.hbm2ddl.auto">create</prop>-->
+				<!--  --><prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.cache.use_second_level_cache">false</prop>
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop> 
 			</props>
@@ -113,6 +113,20 @@
  	 	<property name="transactionManager" ref="txManager" />
     	<property name="databaseSchemaUpdate" value="true" />
     	<property name="jobExecutorActivate" value="false" />
+    	<property name="customSessionFactories"> 
+            <list> 
+               <bean class="com.zufe.activiti.ext.CustomGroupEntityManagerFactory" >
+                    <property name="customGroupManager"> 
+                        <bean class="com.zufe.activiti.ext.CustomGroupManager"/>
+                     </property>
+                </bean>
+                <bean class="com.zufe.activiti.ext.CustomUserEntityManagerFactory" >
+                    <property name="customUserManager"> 
+                        <bean class="com.zufe.activiti.ext.CustomUserManager"/>
+                     </property>
+                 </bean>
+            </list> 
+        </property>
   	</bean>
   	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
 	    <property name="processEngineConfiguration" ref="processEngineConfiguration" />
@@ -122,6 +136,7 @@
   	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
   	<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
   	<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+  	<bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService" />
   	<!-- activiti配置结束 -->
   	
   	

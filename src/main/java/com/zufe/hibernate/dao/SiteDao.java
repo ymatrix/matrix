@@ -15,9 +15,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SiteDao extends Dao {
 
-	@Autowired 
-	public SessionFactory sessionFactory;
-	
 	public List getList(int page,int limit){
 		
 		String hql = "select new Map(id as id,name as name,dirname as dirname,domain as domain,title as title,keyword as keyword,description as description) from Site";

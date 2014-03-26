@@ -1,5 +1,6 @@
 package com.zufe.test.activiti;
 
+import org.activiti.engine.IdentityService;
 import org.activiti.engine.RepositoryService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,14 +21,16 @@ public class ActivitiTest {
 		System.out.println(ctx);
 		
 		RepositoryService repositoryService =  (RepositoryService) ctx.getBean("repositoryService");
-		
-		String deploymentId = repositoryService
-				  .createDeployment()
-				  .addClasspathResource("workflow/hello.bpmn")
-				  .deploy()
-				  .getId();
-		System.out.println(deploymentId);
+		IdentityService identityService =  (IdentityService) ctx.getBean("identityService");
+		System.out.println(identityService);
+//		String deploymentId = repositoryService
+//				  .createDeployment()
+//				  .addClasspathResource("workflow/hello.bpmn")
+//				  .deploy()
+//				  .getId();
+//		System.out.println(deploymentId);
  
+		
 	}
 
 }

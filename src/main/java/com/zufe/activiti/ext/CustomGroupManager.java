@@ -1,4 +1,4 @@
-package com.zufe.activiti;
+package com.zufe.activiti.ext;
 
 import java.util.List;
 import java.util.Map;
@@ -11,9 +11,11 @@ import org.activiti.engine.impl.persistence.entity.GroupEntityManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.zufe.hibernate.dao.GroupDao;
 
+@Repository
 public class CustomGroupManager extends GroupEntityManager{
 
 	private static final Log logger = LogFactory.getLog(CustomGroupManager.class);
