@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * 2014年3月10日
  */
 @Repository
-public class SiteDAO extends DAO {
+public class SiteDao extends Dao {
 
 	@Autowired 
 	public SessionFactory sessionFactory;

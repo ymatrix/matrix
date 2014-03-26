@@ -1,141 +1,254 @@
-1365732533298|-1||debug||com.p6spy.engine.common.P6SpyOptions reloading properties
-1365732533300|-1||info||Using properties file: E:\workspace\jeesimple\target\classes\spy.properties
-1365732533300|-1||info||No value in environment for: getAppender, using: com.p6spy.engine.logging.appender.FileLogger
-1365732533301|-1||info||No value in environment for: getAppend, using: true
-1365732533301|-1||info||No value in environment for: getRealDataSource, using: null
-1365732533301|-1||info||No value in environment for: getJNDIContextCustom, using: null
-1365732533301|-1||info||No value in environment for: getJNDIContextFactory, using: null
-1365732533301|-1||info||No value in environment for: getJNDIContextProviderURL, using: null
-1365732533301|-1||info||No value in environment for: getRealDataSourceProperties, using: null
-1365732533301|-1||info||No value in environment for: getDeregisterDrivers, using: true
-1365732533301|-1||info||No value in environment for: getExcludecategories, using: info,debug,result,batch
-1365732533301|-1||info||No value in environment for: getIncludecategories, using: 
-1365732533301|-1||info||No value in environment for: getRealdriver, using: com.mysql.jdbc.Driver
-1365732533301|-1||info||No value in environment for: getRealdriver2, using: 
-1365732533301|-1||info||No value in environment for: getRealdriver3, using: 
-1365732533301|-1||info||No value in environment for: getDateformat, using: 
-1365732533301|-1||info||No value in environment for: getDateformatter, using: null
-1365732533301|-1||info||No value in environment for: getStringmatcher, using: com.p6spy.engine.common.SubstringMatcher
-1365732533301|-1||info||No value in environment for: getStackTraceClass, using: 
-1365732533301|-1||info||No value in environment for: getSQLExpression, using: null
-1365732533301|-1||info||No value in environment for: getReloadProperties, using: false
-1365732533301|-1||info||No value in environment for: getExecutionThreshold, using: 0
-1365732533301|-1||info||No value in environment for: getStringMatcherEngine, using: com.p6spy.engine.common.SubstringMatcher@1195903
-1365732533301|-1||info||No value in environment for: getReloadPropertiesInterval, using: 60
-1365732533301|-1||info||No value in environment for: getRealDataSourceClass, using: null
-1365732533301|-1||info||No value in environment for: getUsePrefix, using: false
-1365732533302|-1||info||No value in environment for: getAutoflush, using: true
-1365732533302|-1||info||No value in environment for: getExclude, using: 
-1365732533302|-1||info||No value in environment for: getInclude, using: 
-1365732533302|-1||info||No value in environment for: getLogfile, using: spy.log
-1365732533302|-1||info||No value in environment for: getSpydriver, using: com.p6spy.engine.spy.P6SpyDriver
-1365732533302|-1||info||No value in environment for: getStackTrace, using: false
-1365732533302|-1||info||No value in environment for: getFilter, using: false
-1365732534282|117|1|statement||
-    alter table student 
-        drop 
-        foreign key FK8FFE823B79F114DC
-1365732534282|117|3|statement||
-    alter table student 
-        drop 
-        foreign key FK8FFE823B79F114DC
-1365732534299|16|1|statement||
-    drop table if exists role
-1365732534299|16|3|statement||
-    drop table if exists role
-1365732534324|24|1|statement||
-    drop table if exists student
-1365732534324|24|3|statement||
-    drop table if exists student
-1365732534341|16|1|statement||
-    drop table if exists teacher
-1365732534341|16|3|statement||
-    drop table if exists teacher
-1365732534366|25|1|statement||
-    drop table if exists user
-1365732534366|25|3|statement||
-    drop table if exists user
-1365732534423|57|1|statement||
-    create table role (
-        id integer not null auto_increment unique,
-        name varchar(255),
-        permission varchar(255),
-        status varchar(255),
-        primary key (id)
-    )
-1365732534423|57|3|statement||
-    create table role (
-        id integer not null auto_increment unique,
-        name varchar(255),
-        permission varchar(255),
-        status varchar(255),
-        primary key (id)
-    )
-1365732534473|49|1|statement||
-    create table student (
-        id integer not null auto_increment,
-        name varchar(255),
-        sex varchar(255),
-        teacherId integer,
-        primary key (id)
-    )
-1365732534473|49|3|statement||
-    create table student (
-        id integer not null auto_increment,
-        name varchar(255),
-        sex varchar(255),
-        teacherId integer,
-        primary key (id)
-    )
-1365732534540|66|1|statement||
-    create table teacher (
-        id integer not null auto_increment,
-        age varchar(255),
-        name varchar(255),
-        primary key (id)
-    )
-1365732534540|66|3|statement||
-    create table teacher (
-        id integer not null auto_increment,
-        age varchar(255),
-        name varchar(255),
-        primary key (id)
-    )
-1365732534598|57|1|statement||
-    create table user (
-        id integer not null auto_increment unique,
-        department varchar(255),
-        loginName varchar(255),
-        name varchar(255),
-        position varchar(255),
-        roleId integer,
-        status varchar(255),
-        primary key (id)
-    )
-1365732534598|57|3|statement||
-    create table user (
-        id integer not null auto_increment unique,
-        department varchar(255),
-        loginName varchar(255),
-        name varchar(255),
-        position varchar(255),
-        roleId integer,
-        status varchar(255),
-        primary key (id)
-    )
-1365732534724|125|1|statement||
-    alter table student 
-        add index FK8FFE823B79F114DC (teacherId), 
-        add constraint FK8FFE823B79F114DC 
-        foreign key (teacherId) 
-        references teacher (id)
-1365732534729|130|3|statement||
-    alter table student 
-        add index FK8FFE823B79F114DC (teacherId), 
-        add constraint FK8FFE823B79F114DC 
-        foreign key (teacherId) 
-        references teacher (id)
-1365732535007|4|1|statement|select this_.id as id0_0_, this_.name as name0_0_, this_.permission as permission0_0_, this_.status as status0_0_ from role this_ where this_.id=?|select this_.id as id0_0_, this_.name as name0_0_, this_.permission as permission0_0_, this_.status as status0_0_ from role this_ where this_.id=2
-1365732535007|4|4|statement|select this_.id as id0_0_, this_.name as name0_0_, this_.permission as permission0_0_, this_.status as status0_0_ from role this_ where this_.id=?|select this_.id as id0_0_, this_.name as name0_0_, this_.permission as permission0_0_, this_.status as status0_0_ from role this_ where this_.id=2
-1365732535029|0|1|commit||
-1365732535029|0|4|commit||
+1395823141114|-1||debug||com.p6spy.engine.common.P6SpyOptions reloading properties
+1395823141117|-1||info||Using properties file: E:\workspace\matrix\target\classes\spy.properties
+1395823141117|-1||info||No value in environment for: getAppender, using: com.p6spy.engine.logging.appender.FileLogger
+1395823141117|-1||info||No value in environment for: getAppend, using: true
+1395823141117|-1||info||No value in environment for: getRealDataSource, using: null
+1395823141117|-1||info||No value in environment for: getJNDIContextFactory, using: null
+1395823141117|-1||info||No value in environment for: getJNDIContextProviderURL, using: null
+1395823141117|-1||info||No value in environment for: getJNDIContextCustom, using: null
+1395823141117|-1||info||No value in environment for: getRealDataSourceProperties, using: null
+1395823141117|-1||info||No value in environment for: getDeregisterDrivers, using: true
+1395823141117|-1||info||No value in environment for: getUsePrefix, using: false
+1395823141117|-1||info||No value in environment for: getExecutionThreshold, using: 0
+1395823141117|-1||info||No value in environment for: getAutoflush, using: true
+1395823141117|-1||info||No value in environment for: getExclude, using: 
+1395823141117|-1||info||No value in environment for: getExcludecategories, using: info,debug,result,batch
+1395823141117|-1||info||No value in environment for: getInclude, using: 
+1395823141117|-1||info||No value in environment for: getIncludecategories, using: 
+1395823141117|-1||info||No value in environment for: getLogfile, using: spy.log
+1395823141117|-1||info||No value in environment for: getRealdriver, using: com.mysql.jdbc.Driver
+1395823141117|-1||info||No value in environment for: getRealdriver2, using: 
+1395823141117|-1||info||No value in environment for: getRealdriver3, using: 
+1395823141117|-1||info||No value in environment for: getSpydriver, using: com.p6spy.engine.spy.P6SpyDriver
+1395823141118|-1||info||No value in environment for: getDateformat, using: 
+1395823141118|-1||info||No value in environment for: getDateformatter, using: null
+1395823141118|-1||info||No value in environment for: getStringmatcher, using: com.p6spy.engine.common.SubstringMatcher
+1395823141118|-1||info||No value in environment for: getStringMatcherEngine, using: com.p6spy.engine.common.SubstringMatcher@1b54362
+1395823141118|-1||info||No value in environment for: getStackTraceClass, using: 
+1395823141118|-1||info||No value in environment for: getSQLExpression, using: null
+1395823141118|-1||info||No value in environment for: getReloadProperties, using: false
+1395823141118|-1||info||No value in environment for: getReloadPropertiesInterval, using: 60
+1395823141118|-1||info||No value in environment for: getRealDataSourceClass, using: null
+1395823141118|-1||info||No value in environment for: getStackTrace, using: false
+1395823141118|-1||info||No value in environment for: getFilter, using: false
+1395823142984|0|1|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
+1395823142984|0|5|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
+1395823142988|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'|NAME_ = schema.version, REV_ = 1, VALUE_ = 5.15
+1395823142988|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'|NAME_ = schema.version, REV_ = 1, VALUE_ = 5.15
+1395823143725|0|1|rollback||
+1395823143833|0|1|statement||select count(*) from test.DATABASECHANGELOGLOCK
+1395823143834|-1||resultset|select count(*) from test.DATABASECHANGELOGLOCK|count(*) = 1
+1395823143834|0|1|statement||SELECT LOCKED FROM test.DATABASECHANGELOGLOCK WHERE ID=1
+1395823143834|-1||resultset|SELECT LOCKED FROM test.DATABASECHANGELOGLOCK WHERE ID=1|
+1395823143866|0|1|statement||UPDATE test.DATABASECHANGELOGLOCK SET LOCKED = 1, LOCKEDBY = 'PYQA0PPFUKNWFCY (192.168.0.116)', LOCKGRANTED = '2014-03-26 16:39:03.835' WHERE ID = 1 AND LOCKED = 0
+1395823143906|40|1|commit||
+1395823143907|0|1|rollback||
+1395823144348|0|1|statement||SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL
+1395823144348|-1||resultset|SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL|
+1395823144348|-1||resultset|SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL|
+1395823144350|0|1|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395823144354|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144354|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144355|0|1|commit||
+1395823144356|0|1|statement||select count(*) from test.DATABASECHANGELOGLOCK
+1395823144357|-1||resultset|select count(*) from test.DATABASECHANGELOGLOCK|count(*) = 1
+1395823144359|1|1|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395823144359|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144359|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144360|1|1|rollback||
+1395823144379|1|1|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395823144379|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144379|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395823144381|1|1|rollback||
+1395823144381|0|1|statement||UPDATE test.DATABASECHANGELOGLOCK SET LOCKED = 0, LOCKEDBY = NULL, LOCKGRANTED = NULL WHERE ID = 1
+1395823144427|46|1|commit||
+1395823144427|0|1|rollback||
+1395823144428|0|1|rollback||
+1395823144489|0|0|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'next.dbid'
+1395823144489|0|7|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'next.dbid'
+1395823144502|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'next.dbid'|NAME_ = next.dbid, REV_ = 6, VALUE_ = 501
+1395823144502|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'next.dbid'|NAME_ = next.dbid, REV_ = 6, VALUE_ = 501
+1395823144514|0|0|statement|update ACT_GE_PROPERTY
+     SET REV_ = ?,
+      VALUE_ = ? 
+    where NAME_ = ?
+      and REV_ = ?|update ACT_GE_PROPERTY
+     SET REV_ = 7,
+      VALUE_ = '601' 
+    where NAME_ = 'next.dbid'
+      and REV_ = 6
+1395823144514|0|7|statement|update ACT_GE_PROPERTY
+     SET REV_ = ?,
+      VALUE_ = ? 
+    where NAME_ = ?
+      and REV_ = ?|update ACT_GE_PROPERTY
+     SET REV_ = 7,
+      VALUE_ = '601' 
+    where NAME_ = 'next.dbid'
+      and REV_ = 6
+1395823144639|16|0|commit||
+1395823144639|16|7|commit||
+1395823145098|1|1|statement|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = ? and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null))|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = 'myProcess' and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = 'myProcess' and (TENANT_ID_ = '' or TENANT_ID_ is null))
+1395823145098|1|6|statement|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = ? and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = ? and (TENANT_ID_ = '' or TENANT_ID_ is null))|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = 'myProcess' and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = 'myProcess' and (TENANT_ID_ = '' or TENANT_ID_ is null))
+1395823145099|-1||resultset|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = 'myProcess' and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = 'myProcess' and (TENANT_ID_ = '' or TENANT_ID_ is null))|CATEGORY_ = http://www.activiti.org/test, DEPLOYMENT_ID_ = 401, DESCRIPTION_ = null, DGRM_RESOURCE_NAME_ = workflow/hello.myProcess.png, ID_ = myProcess:2:404, KEY_ = myProcess, NAME_ = My process, RESOURCE_NAME_ = workflow/hello.bpmn, REV_ = 1, SUSPENSION_STATE_ = 1, TENANT_ID_ = , VERSION_ = 2
+1395823145099|-1||resultset|select *
+    from ACT_RE_PROCDEF 
+    where KEY_ = 'myProcess' and
+          (TENANT_ID_ = ''  or TENANT_ID_ is null) and
+          VERSION_ = (select max(VERSION_) from ACT_RE_PROCDEF where KEY_ = 'myProcess' and (TENANT_ID_ = '' or TENANT_ID_ is null))|CATEGORY_ = http://www.activiti.org/test, DEPLOYMENT_ID_ = 401, DESCRIPTION_ = null, DGRM_RESOURCE_NAME_ = workflow/hello.myProcess.png, ID_ = myProcess:2:404, KEY_ = myProcess, NAME_ = My process, RESOURCE_NAME_ = workflow/hello.bpmn, REV_ = 1, SUSPENSION_STATE_ = 1, TENANT_ID_ = , VERSION_ = 2
+1395823145102|1|1|statement|select * from ACT_RU_JOB
+      where HANDLER_TYPE_ = ?
+      and HANDLER_CFG_ =  ?|select * from ACT_RU_JOB
+      where HANDLER_TYPE_ = 'timer-start-event'
+      and HANDLER_CFG_ =  'myProcess'
+1395823145102|1|6|statement|select * from ACT_RU_JOB
+      where HANDLER_TYPE_ = ?
+      and HANDLER_CFG_ =  ?|select * from ACT_RU_JOB
+      where HANDLER_TYPE_ = 'timer-start-event'
+      and HANDLER_CFG_ =  'myProcess'
+1395823145128|0|1|statement|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = ?)
+    	and (CONFIGURATION_ = ?)
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = 'message')
+    	and (CONFIGURATION_ = 'myProcess:2:404')
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)
+1395823145128|0|6|statement|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = ?)
+    	and (CONFIGURATION_ = ?)
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = 'message')
+    	and (CONFIGURATION_ = 'myProcess:2:404')
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)
+1395823145130|1|1|statement|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = ?)
+    	and (CONFIGURATION_ = ?)
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = 'signal')
+    	and (CONFIGURATION_ = 'myProcess:2:404')
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)
+1395823145130|1|6|statement|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = ?)
+    	and (CONFIGURATION_ = ?)
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)|select * 
+    from ACT_RU_EVENT_SUBSCR
+    where (EVENT_TYPE_ = 'signal')
+    	and (CONFIGURATION_ = 'myProcess:2:404')
+        
+     
+        and (TENANT_ID_ = '' or TENANT_ID_ is null)
+1395823145131|0|1|statement|insert into ACT_RE_DEPLOYMENT(ID_, NAME_, CATEGORY_, TENANT_ID_, DEPLOY_TIME_)
+    values(?, ?, ?, ?, ?)|insert into ACT_RE_DEPLOYMENT(ID_, NAME_, CATEGORY_, TENANT_ID_, DEPLOY_TIME_)
+    values('501', '', '', '', '2014-03-26 16:39:04.474')
+1395823145131|0|6|statement|insert into ACT_RE_DEPLOYMENT(ID_, NAME_, CATEGORY_, TENANT_ID_, DEPLOY_TIME_)
+    values(?, ?, ?, ?, ?)|insert into ACT_RE_DEPLOYMENT(ID_, NAME_, CATEGORY_, TENANT_ID_, DEPLOY_TIME_)
+    values('501', '', '', '', '2014-03-26 16:39:04.474')
+1395823145489|357|1|statement|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values (?, 1, ?, ?, ?, ?)|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values ('502', 1, 'workflow/hello.bpmn', 'java.io.ByteArrayInputStream@1787395', '501', 'false')
+1395823145490|358|6|statement|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values (?, 1, ?, ?, ?, ?)|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values ('502', 1, 'workflow/hello.bpmn', 'java.io.ByteArrayInputStream@1787395', '501', 'false')
+1395823145539|49|1|statement|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values (?, 1, ?, ?, ?, ?)|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values ('503', 1, 'workflow/hello.myProcess.png', 'java.io.ByteArrayInputStream@138b4ed', '501', 'true')
+1395823145540|50|6|statement|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values (?, 1, ?, ?, ?, ?)|insert into ACT_GE_BYTEARRAY(ID_, REV_, NAME_, BYTES_, DEPLOYMENT_ID_, GENERATED_)
+    values ('503', 1, 'workflow/hello.myProcess.png', 'java.io.ByteArrayInputStream@138b4ed', '501', 'true')
+1395823145542|0|1|statement|insert into ACT_RE_PROCDEF(ID_, REV_, CATEGORY_, NAME_, KEY_, VERSION_, DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, DESCRIPTION_, HAS_START_FORM_KEY_, SUSPENSION_STATE_, TENANT_ID_)
+    values (?,
+    		1,
+            ?,
+            ?,
+            ?, 
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?)|insert into ACT_RE_PROCDEF(ID_, REV_, CATEGORY_, NAME_, KEY_, VERSION_, DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, DESCRIPTION_, HAS_START_FORM_KEY_, SUSPENSION_STATE_, TENANT_ID_)
+    values ('myProcess:3:504',
+    		1,
+            'http://www.activiti.org/test',
+            'My process',
+            'myProcess', 
+            3,
+            '501',
+            'workflow/hello.bpmn',
+            'workflow/hello.myProcess.png',
+            '',
+            'false',
+            1,
+            '')
+1395823145542|0|6|statement|insert into ACT_RE_PROCDEF(ID_, REV_, CATEGORY_, NAME_, KEY_, VERSION_, DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, DESCRIPTION_, HAS_START_FORM_KEY_, SUSPENSION_STATE_, TENANT_ID_)
+    values (?,
+    		1,
+            ?,
+            ?,
+            ?, 
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?,
+            ?)|insert into ACT_RE_PROCDEF(ID_, REV_, CATEGORY_, NAME_, KEY_, VERSION_, DEPLOYMENT_ID_, RESOURCE_NAME_, DGRM_RESOURCE_NAME_, DESCRIPTION_, HAS_START_FORM_KEY_, SUSPENSION_STATE_, TENANT_ID_)
+    values ('myProcess:3:504',
+    		1,
+            'http://www.activiti.org/test',
+            'My process',
+            'myProcess', 
+            3,
+            '501',
+            'workflow/hello.bpmn',
+            'workflow/hello.myProcess.png',
+            '',
+            'false',
+            1,
+            '')
+1395823145581|38|1|commit||
+1395823145581|38|6|commit||

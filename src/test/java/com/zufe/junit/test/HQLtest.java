@@ -2,17 +2,12 @@ package com.zufe.junit.test;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.zufe.pojo.Role;
 
 /**
  * @author jyl
@@ -29,7 +24,7 @@ public class HQLtest {
 		ctx = new ClassPathXmlApplicationContext(locations);
 	}
 
-
+	@Test
 	public void test(){
 		
 		SessionFactory sf = (SessionFactory) ctx.getBean("sessionFactory");

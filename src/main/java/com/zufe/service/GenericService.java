@@ -18,7 +18,7 @@ import net.sf.json.processors.JsonValueProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zufe.hibernate.dao.DAO;
+import com.zufe.hibernate.dao.Dao;
 import com.zufe.utils.DateJsonValueProcessor;
 
 /**       
@@ -32,7 +32,7 @@ import com.zufe.utils.DateJsonValueProcessor;
 public class GenericService{
 
 	@Resource(name="DAO")
-	protected DAO dao;
+	protected Dao dao;
   
 	/**
 	 * 属性名称

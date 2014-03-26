@@ -4,7 +4,7 @@ import net.sf.json.JSONArray;
 
 import org.springframework.stereotype.Service;
 
-import com.zufe.hibernate.dao.SiteDAO;
+import com.zufe.hibernate.dao.SiteDao;
 import javax.annotation.Resource;
 /**
  * 
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class SiteService extends GenericService {
 
 	@Resource(name="siteDAO")
-	public SiteDAO siteDao;
+	public SiteDao siteDao;
 
 	/**
 	 * 分页查询
