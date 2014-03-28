@@ -48,6 +48,7 @@
         <!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->  
         <property name="maxIdleTime" value="1800"></property>
 	</bean>
+	
 	<bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource">
 		<constructor-arg ref="targetDataSource"></constructor-arg>
 	</bean>
@@ -63,7 +64,7 @@
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
-				<!--  --><prop key="hibernate.hbm2ddl.auto">create</prop>
+				<!--  <prop key="hibernate.hbm2ddl.auto">create</prop>-->
 				<prop key="hibernate.cache.use_second_level_cache">false</prop>
 				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop> 
 			</props>
@@ -111,20 +112,12 @@
  	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
  	 	<property name="dataSource" ref="dataSource" />
  	 	<property name="transactionManager" ref="txManager" />
-    	<property name="databaseSchemaUpdate" value="true" />
-    	<property name="jobExecutorActivate" value="false" />
+    	<property name="databaseSchemaUpdate" value="true" />  
+    	<property name="jobExecutorActivate" value="false" /> 
     	<property name="customSessionFactories"> 
             <list> 
-               <bean class="com.zufe.activiti.ext.CustomGroupEntityManagerFactory" >
-                    <property name="customGroupManager"> 
-                        <bean class="com.zufe.activiti.ext.CustomGroupManager"/>
-                     </property>
-                </bean>
-                <bean class="com.zufe.activiti.ext.CustomUserEntityManagerFactory" >
-                    <property name="customUserManager"> 
-                        <bean class="com.zufe.activiti.ext.CustomUserManager"/>
-                     </property>
-                 </bean>
+            	<bean class="com.zufe.activiti.ext.CustomGroupEntityManagerFactory"></bean>
+            	<bean class="com.zufe.activiti.ext.CustomUserEntityManagerFactory"></bean>
             </list> 
         </property>
   	</bean>

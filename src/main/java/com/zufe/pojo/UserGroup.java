@@ -1,8 +1,10 @@
 package com.zufe.pojo;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,7 +13,9 @@ import org.hibernate.annotations.GenericGenerator;
  * @author matrix
  * 2014年3月26日
  */
-public class Group implements java.io.Serializable{
+@Entity
+@Table(name = "user_group")
+public class UserGroup implements java.io.Serializable{
 
 	private String id;
 	
@@ -25,12 +29,12 @@ public class Group implements java.io.Serializable{
 	 */
 	private String description;
 
-	public Group() {
+	public UserGroup() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Group(String id, String name, String description) {
+	public UserGroup(String id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;

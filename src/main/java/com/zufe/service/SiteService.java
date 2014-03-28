@@ -2,9 +2,11 @@ package com.zufe.service;
 
 import net.sf.json.JSONArray;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zufe.hibernate.dao.SiteDao;
+
 import javax.annotation.Resource;
 /**
  * 
@@ -14,7 +16,7 @@ import javax.annotation.Resource;
 @Service
 public class SiteService extends GenericService {
 
-	@Resource(name="siteDAO")
+	@Autowired
 	public SiteDao siteDao;
 
 	/**

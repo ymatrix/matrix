@@ -19,9 +19,9 @@
     <sequenceFlow id="flow13" sourceRef="exclusivegateway1" targetRef="parallelgateway1"></sequenceFlow>
     <sequenceFlow id="flow14" sourceRef="parallelgateway1" targetRef="usertask4"></sequenceFlow>
     <parallelGateway id="parallelgateway2" name="Parallel Gateway"></parallelGateway>
-    <sequenceFlow id="flow15" sourceRef="总经理审批" targetRef="parallelgateway2"></sequenceFlow>
     <sequenceFlow id="flow16" sourceRef="usertask4" targetRef="parallelgateway2"></sequenceFlow>
     <sequenceFlow id="flow17" sourceRef="parallelgateway2" targetRef="endevent1"></sequenceFlow>
+    <sequenceFlow id="flow18" sourceRef="usertask3" targetRef="parallelgateway2"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_apply">
     <bpmndi:BPMNPlane bpmnElement="apply" id="BPMNPlane_apply">
@@ -91,11 +91,6 @@
         <omgdi:waypoint x="720.0" y="187.0"></omgdi:waypoint>
         <omgdi:waypoint x="810.0" y="187.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow15" id="BPMNEdge_flow15">
-        <omgdi:waypoint x="915.0" y="288.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1050.0" y="288.0"></omgdi:waypoint>
-        <omgdi:waypoint x="1050.0" y="254.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow16" id="BPMNEdge_flow16">
         <omgdi:waypoint x="915.0" y="187.0"></omgdi:waypoint>
         <omgdi:waypoint x="1050.0" y="187.0"></omgdi:waypoint>
@@ -104,6 +99,11 @@
       <bpmndi:BPMNEdge bpmnElement="flow17" id="BPMNEdge_flow17">
         <omgdi:waypoint x="1070.0" y="234.0"></omgdi:waypoint>
         <omgdi:waypoint x="1120.0" y="234.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
+        <omgdi:waypoint x="915.0" y="288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1050.0" y="288.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1050.0" y="254.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

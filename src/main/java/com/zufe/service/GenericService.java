@@ -31,7 +31,7 @@ import com.zufe.utils.DateJsonValueProcessor;
 @Service
 public class GenericService{
 
-	@Resource(name="DAO")
+	@Autowired
 	protected Dao dao;
   
 	/**

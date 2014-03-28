@@ -10,15 +10,6 @@ public class CustomUserEntityManagerFactory implements SessionFactory{
 
 	@Autowired 
 	private CustomUserManager customUserManager;
-	
-	
-	public CustomUserManager getCustomUserManager() {
-		return customUserManager;
-	}
-
-	public void setCustomUserManager(CustomUserManager customUserManager) {
-		this.customUserManager = customUserManager;
-	}
 
 	public Class<?> getSessionType() {
 		// TODO Auto-generated method stub

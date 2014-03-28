@@ -1,235 +1,66 @@
-1395828651028|-1||debug||com.p6spy.engine.common.P6SpyOptions reloading properties
-1395828651030|-1||info||Using properties file: E:\workspace\matrix\target\classes\spy.properties
-1395828651030|-1||info||No value in environment for: getAppender, using: com.p6spy.engine.logging.appender.FileLogger
-1395828651030|-1||info||No value in environment for: getAppend, using: true
-1395828651030|-1||info||No value in environment for: getRealDataSource, using: null
-1395828651030|-1||info||No value in environment for: getJNDIContextFactory, using: null
-1395828651030|-1||info||No value in environment for: getJNDIContextProviderURL, using: null
-1395828651030|-1||info||No value in environment for: getJNDIContextCustom, using: null
-1395828651030|-1||info||No value in environment for: getRealDataSourceProperties, using: null
-1395828651030|-1||info||No value in environment for: getDeregisterDrivers, using: true
-1395828651031|-1||info||No value in environment for: getUsePrefix, using: false
-1395828651031|-1||info||No value in environment for: getExecutionThreshold, using: 0
-1395828651031|-1||info||No value in environment for: getAutoflush, using: true
-1395828651031|-1||info||No value in environment for: getExclude, using: 
-1395828651031|-1||info||No value in environment for: getExcludecategories, using: info,debug,result,batch
-1395828651031|-1||info||No value in environment for: getInclude, using: 
-1395828651031|-1||info||No value in environment for: getIncludecategories, using: 
-1395828651031|-1||info||No value in environment for: getLogfile, using: spy.log
-1395828651031|-1||info||No value in environment for: getRealdriver, using: com.mysql.jdbc.Driver
-1395828651031|-1||info||No value in environment for: getRealdriver2, using: 
-1395828651031|-1||info||No value in environment for: getRealdriver3, using: 
-1395828651031|-1||info||No value in environment for: getSpydriver, using: com.p6spy.engine.spy.P6SpyDriver
-1395828651031|-1||info||No value in environment for: getDateformat, using: 
-1395828651031|-1||info||No value in environment for: getDateformatter, using: null
-1395828651031|-1||info||No value in environment for: getStringmatcher, using: com.p6spy.engine.common.SubstringMatcher
-1395828651031|-1||info||No value in environment for: getStringMatcherEngine, using: com.p6spy.engine.common.SubstringMatcher@238016
-1395828651031|-1||info||No value in environment for: getStackTraceClass, using: 
-1395828651031|-1||info||No value in environment for: getSQLExpression, using: null
-1395828651031|-1||info||No value in environment for: getReloadProperties, using: false
-1395828651031|-1||info||No value in environment for: getReloadPropertiesInterval, using: 60
-1395828651031|-1||info||No value in environment for: getRealDataSourceClass, using: null
-1395828651031|-1||info||No value in environment for: getStackTrace, using: false
-1395828651031|-1||info||No value in environment for: getFilter, using: false
-1395828651850|87|2|statement||
-    drop table if exists category
-1395828651850|87|4|statement||
-    drop table if exists category
-1395828651903|53|2|statement||
-    drop table if exists model
-1395828651903|53|4|statement||
-    drop table if exists model
-1395828651966|63|2|statement||
-    drop table if exists permission
-1395828651967|64|4|statement||
-    drop table if exists permission
-1395828652028|61|2|statement||
-    drop table if exists role
-1395828652028|61|4|statement||
-    drop table if exists role
-1395828652108|80|2|statement||
-    drop table if exists rolepermission
-1395828652108|80|4|statement||
-    drop table if exists rolepermission
-1395828652161|52|2|statement||
-    drop table if exists site
-1395828652161|52|4|statement||
-    drop table if exists site
-1395828652211|49|2|statement||
-    drop table if exists user
-1395828652211|49|4|statement||
-    drop table if exists user
-1395828652558|346|2|statement||
-    create table category (
-        id varchar(255) not null unique,
-        category_type integer,
-        description varchar(255),
-        image varchar(255),
-        isleaf boolean,
-        isshow boolean,
-        level integer,
-        modelid varchar(255),
-        name varchar(255),
-        parentid varchar(255),
-        siteid varchar(255),
-        sort integer,
-        primary key (id)
-    )
-1395828652559|347|4|statement||
-    create table category (
-        id varchar(255) not null unique,
-        category_type integer,
-        description varchar(255),
-        image varchar(255),
-        isleaf boolean,
-        isshow boolean,
-        level integer,
-        modelid varchar(255),
-        name varchar(255),
-        parentid varchar(255),
-        siteid varchar(255),
-        sort integer,
-        primary key (id)
-    )
-1395828653107|548|2|statement||
-    create table model (
-        id varchar(255) not null unique,
-        category_template varchar(255),
-        description varchar(255),
-        list_template varchar(255),
-        name varchar(255),
-        show_template varchar(255),
-        siteid varchar(255),
-        status integer,
-        primary key (id)
-    )
-1395828653107|548|4|statement||
-    create table model (
-        id varchar(255) not null unique,
-        category_template varchar(255),
-        description varchar(255),
-        list_template varchar(255),
-        name varchar(255),
-        show_template varchar(255),
-        siteid varchar(255),
-        status integer,
-        primary key (id)
-    )
-1395828653444|336|2|statement||
-    create table permission (
-        id varchar(255) not null unique,
-        flag varchar(255),
-        isleaf boolean,
-        level integer,
-        name varchar(255),
-        parentid varchar(255),
-        picurl varchar(255),
-        sort integer,
-        url varchar(255),
-        primary key (id)
-    )
-1395828653444|336|4|statement||
-    create table permission (
-        id varchar(255) not null unique,
-        flag varchar(255),
-        isleaf boolean,
-        level integer,
-        name varchar(255),
-        parentid varchar(255),
-        picurl varchar(255),
-        sort integer,
-        url varchar(255),
-        primary key (id)
-    )
-1395828653752|308|2|statement||
-    create table role (
-        id varchar(255) not null unique,
-        createdate datetime,
-        name varchar(255),
-        status integer,
-        userid varchar(255),
-        primary key (id)
-    )
-1395828653752|308|4|statement||
-    create table role (
-        id varchar(255) not null unique,
-        createdate datetime,
-        name varchar(255),
-        status integer,
-        userid varchar(255),
-        primary key (id)
-    )
-1395828654236|483|2|statement||
-    create table rolepermission (
-        id varchar(255) not null unique,
-        permissionid varchar(255),
-        roleid varchar(255),
-        primary key (id)
-    )
-1395828654236|483|4|statement||
-    create table rolepermission (
-        id varchar(255) not null unique,
-        permissionid varchar(255),
-        roleid varchar(255),
-        primary key (id)
-    )
-1395828654694|458|2|statement||
-    create table site (
-        id varchar(255) not null unique,
-        description varchar(255),
-        dirname varchar(255),
-        domain varchar(255),
-        keyword varchar(255),
-        name varchar(255),
-        title varchar(255),
-        primary key (id)
-    )
-1395828654694|458|4|statement||
-    create table site (
-        id varchar(255) not null unique,
-        description varchar(255),
-        dirname varchar(255),
-        domain varchar(255),
-        keyword varchar(255),
-        name varchar(255),
-        title varchar(255),
-        primary key (id)
-    )
-1395828655202|507|2|statement||
-    create table user (
-        id varchar(255) not null unique,
-        address varchar(255),
-        createdate datetime,
-        email varchar(255),
-        jobno varchar(255),
-        logindate datetime,
-        loginip varchar(255),
-        password varchar(255),
-        position varchar(255),
-        realname varchar(255),
-        roleid varchar(255),
-        sex varchar(255),
-        tel varchar(255),
-        username varchar(255),
-        primary key (id)
-    )
-1395828655203|508|4|statement||
-    create table user (
-        id varchar(255) not null unique,
-        address varchar(255),
-        createdate datetime,
-        email varchar(255),
-        jobno varchar(255),
-        logindate datetime,
-        loginip varchar(255),
-        password varchar(255),
-        position varchar(255),
-        realname varchar(255),
-        roleid varchar(255),
-        sex varchar(255),
-        tel varchar(255),
-        username varchar(255),
-        primary key (id)
-    )
-1395828656459|0|2|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
-1395828656459|0|6|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
+1395998587241|-1||debug||com.p6spy.engine.common.P6SpyOptions reloading properties
+1395998587244|-1||info||Using properties file: E:\workspace\matrix\target\classes\spy.properties
+1395998587244|-1||info||No value in environment for: getAppender, using: com.p6spy.engine.logging.appender.FileLogger
+1395998587244|-1||info||No value in environment for: getAppend, using: true
+1395998587244|-1||info||No value in environment for: getRealDataSource, using: null
+1395998587244|-1||info||No value in environment for: getJNDIContextFactory, using: null
+1395998587244|-1||info||No value in environment for: getJNDIContextProviderURL, using: null
+1395998587244|-1||info||No value in environment for: getJNDIContextCustom, using: null
+1395998587244|-1||info||No value in environment for: getRealDataSourceProperties, using: null
+1395998587244|-1||info||No value in environment for: getDeregisterDrivers, using: true
+1395998587244|-1||info||No value in environment for: getUsePrefix, using: false
+1395998587244|-1||info||No value in environment for: getExecutionThreshold, using: 0
+1395998587244|-1||info||No value in environment for: getAutoflush, using: true
+1395998587244|-1||info||No value in environment for: getExclude, using: 
+1395998587244|-1||info||No value in environment for: getExcludecategories, using: info,debug,result,batch
+1395998587244|-1||info||No value in environment for: getInclude, using: 
+1395998587244|-1||info||No value in environment for: getIncludecategories, using: 
+1395998587244|-1||info||No value in environment for: getLogfile, using: spy.log
+1395998587244|-1||info||No value in environment for: getRealdriver, using: com.mysql.jdbc.Driver
+1395998587244|-1||info||No value in environment for: getRealdriver2, using: 
+1395998587244|-1||info||No value in environment for: getRealdriver3, using: 
+1395998587244|-1||info||No value in environment for: getSpydriver, using: com.p6spy.engine.spy.P6SpyDriver
+1395998587244|-1||info||No value in environment for: getDateformat, using: 
+1395998587244|-1||info||No value in environment for: getDateformatter, using: null
+1395998587245|-1||info||No value in environment for: getStringmatcher, using: com.p6spy.engine.common.SubstringMatcher
+1395998587245|-1||info||No value in environment for: getStringMatcherEngine, using: com.p6spy.engine.common.SubstringMatcher@e7f6eb
+1395998587245|-1||info||No value in environment for: getStackTraceClass, using: 
+1395998587245|-1||info||No value in environment for: getSQLExpression, using: null
+1395998587245|-1||info||No value in environment for: getReloadProperties, using: false
+1395998587245|-1||info||No value in environment for: getReloadPropertiesInterval, using: 60
+1395998587245|-1||info||No value in environment for: getRealDataSourceClass, using: null
+1395998587245|-1||info||No value in environment for: getStackTrace, using: false
+1395998587245|-1||info||No value in environment for: getFilter, using: false
+1395998589306|1|2|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
+1395998589306|1|5|statement|select * from ACT_GE_PROPERTY where NAME_ = ?|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'
+1395998589310|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'|NAME_ = schema.version, REV_ = 1, VALUE_ = 5.15
+1395998589310|-1||resultset|select * from ACT_GE_PROPERTY where NAME_ = 'schema.version'|NAME_ = schema.version, REV_ = 1, VALUE_ = 5.15
+1395998590010|0|2|rollback||
+1395998590197|1|2|statement||select count(*) from test.DATABASECHANGELOGLOCK
+1395998590197|-1||resultset|select count(*) from test.DATABASECHANGELOGLOCK|count(*) = 1
+1395998590198|0|2|statement||SELECT LOCKED FROM test.DATABASECHANGELOGLOCK WHERE ID=1
+1395998590198|-1||resultset|SELECT LOCKED FROM test.DATABASECHANGELOGLOCK WHERE ID=1|
+1395998590230|0|2|statement||UPDATE test.DATABASECHANGELOGLOCK SET LOCKED = 1, LOCKEDBY = 'PYQA0PPFUKNWFCY (192.168.0.116)', LOCKGRANTED = '2014-03-28 17:23:10.198' WHERE ID = 1 AND LOCKED = 0
+1395998590253|23|2|commit||
+1395998590253|0|2|rollback||
+1395998590700|0|2|statement||SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL
+1395998590700|-1||resultset|SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL|
+1395998590700|-1||resultset|SELECT MD5SUM FROM test.DATABASECHANGELOG WHERE MD5SUM IS NOT NULL|
+1395998590702|0|2|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395998590707|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590707|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590707|0|2|commit||
+1395998590709|0|2|statement||select count(*) from test.DATABASECHANGELOGLOCK
+1395998590709|-1||resultset|select count(*) from test.DATABASECHANGELOGLOCK|count(*) = 1
+1395998590711|0|2|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395998590711|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590711|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590712|0|2|rollback||
+1395998590730|1|2|statement||SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+1395998590730|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590730|-1||resultset|SELECT FILENAME,AUTHOR,ID,MD5SUM,DATEEXECUTED,ORDEREXECUTED,TAG,EXECTYPE,DESCRIPTION,COMMENTS FROM test.DATABASECHANGELOG ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC|
+1395998590731|0|2|rollback||
+1395998590732|0|2|statement||UPDATE test.DATABASECHANGELOGLOCK SET LOCKED = 0, LOCKEDBY = NULL, LOCKGRANTED = NULL WHERE ID = 1
+1395998590758|26|2|commit||
+1395998590759|1|2|rollback||
+1395998590759|0|2|rollback||

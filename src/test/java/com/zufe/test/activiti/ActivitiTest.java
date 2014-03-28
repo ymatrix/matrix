@@ -2,6 +2,7 @@ package com.zufe.test.activiti;
 
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.RepositoryService;
+import org.activiti.spring.ProcessEngineFactoryBean;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,10 +17,9 @@ public class ActivitiTest {
 	}
 
 	@Test
-	public void test(){
+	public void test() throws Exception{
 		
 		System.out.println(ctx);
-		
 		RepositoryService repositoryService =  (RepositoryService) ctx.getBean("repositoryService");
 		IdentityService identityService =  (IdentityService) ctx.getBean("identityService");
 		System.out.println(identityService);
@@ -30,7 +30,6 @@ public class ActivitiTest {
 //				  .getId();
 //		System.out.println(deploymentId);
  
-		
 	}
 
 }

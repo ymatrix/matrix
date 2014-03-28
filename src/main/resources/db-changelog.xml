@@ -92,6 +92,13 @@
 			<column name="keyword" type="varchar(100)"></column>
 			<column name="description" type="varchar(500)"></column>
 		</createTable>
+		<createTable tableName="user_group">
+			<column name="id" type="char(36)">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(50)"></column>
+			<column name="description" type="varchar(500)"></column>
+		</createTable>
 	</changeSet>
 	<changeSet id="20140219001_jyl1001" author="matrix">
 		<insert tableName="permission">
